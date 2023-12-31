@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>HAPPY NEW YEAR!!! JASON</title>
+        <link href="style.css" media="all" rel="stylesheet" />
+    </head>
+    <style>
+        @font-face {
+            font-family: 'DKB-Song';
+            src: url('./font/AaGuDianKeBenSong-2.ttf') format('truetype');
+        }
+        body {
+        	background: #000;
+        	margin: 0;
+        }
+        canvas {
+        	cursor: crosshair;
+        	display: block;
+        }
+        p {
+            margin: 0;
+            font-size: 24px;
+            font-family: fantasy, 'DKB-Song';
+            color: white;
+        }
+    </style>
+    <body>
+        <div style="position: absolute; margin: 20px;">
+            <p>
+                HAPPY NEW YEAR!!!</br>
+                TO: CINDY QIAN & LINDA HUANG</br>
+                FROM: JASON YANG</br>
+            </p>
+            <p style="font-weight: bold; font-size: 30px">
+                在新的一年里面祝你们两个健健康康，新的一年都要好好的！考试成绩也要突飞猛进，期末考一个好成绩！！新的一年要有新的开始，朝着自己选科的目标努力前进，为自己的努力感到骄傲！生活要一路顺利，把遇到的挫折改变成自己的机遇！我们都要努力奋斗，不要轻易放弃！！！
+            </p>
+            <p>距离2024年还有：</p>
+            <div class="container5"></div>
+        </div>
+        <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+        <script src="script.js"></script>
+        <script src="countDown.min.js"></script>
+        <script>
+            var dateBegin = new Date();//将-转化为/，使用new Date
+            var dateEnd = new Date("2024/1/1 00:00:00");//获取当前时间
+            var cd5 = new Countdown({
+                cont: document.querySelector('.container5'),
+                date: Date.now() + dateEnd.getTime() - dateBegin.getTime(),
+                outputTranslation: {
+                    year: 'Years',
+                    week: 'Weeks',
+                    day: 'Days',
+                    hour: 'Hours',
+                    minute: 'Minutes',
+                    second: 'Seconds',
+                },
+                endCallback: function () {
+                    document.querySelector('.container5').insertAdjacentHTML(
+                        'beforeend',
+                        '<div style="display: flex;height: 50px;align-items: center;justify-content: center;background: red;font-weight: bold;">Countdown 3 ended.</div>')
+                },
+                outputFormat: 'hour|minute|second',
+            });
+            cd5.start();
+        </script>
+    </body>
+</html>
